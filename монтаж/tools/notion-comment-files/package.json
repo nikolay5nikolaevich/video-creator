@@ -1,0 +1,16 @@
+{
+  "name": "notion-comment-files",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP server that downloads image/file attachments from Notion comments (which the hosted Notion connector does not expose) and returns a manifest mapped to block text.",
+  "bin": {
+    "notion-comment-files": "./server.mjs"
+  },
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.0"
+  }
+}

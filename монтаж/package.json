@@ -1,0 +1,27 @@
+{
+  "name": "videomontage",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio",
+    "editor": "node tools/open-editor.mjs",
+    "build": "remotion bundle",
+    "render": "node tools/render.mjs",
+    "render:raw": "remotion render",
+    "compositions": "remotion compositions",
+    "typecheck": "tsc --noEmit",
+    "check:devlog": "tsc tools/roblox-devlog-check.ts --outDir .devlog-check --module commonjs --target es2020 --skipLibCheck --strict && node .devlog-check/tools/roblox-devlog-check.js",
+    "export:devlog": "tsc tools/roblox-devlog-export.ts --outDir .devlog-check --module commonjs --target es2020 --skipLibCheck --strict && node .devlog-check/tools/roblox-devlog-export.js"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.451",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
+    "remotion": "4.0.451"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "@types/webpack-env": "1.18.8",
+    "typescript": "5.6.3"
+  }
+}

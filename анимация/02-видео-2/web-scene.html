@@ -1,0 +1,46 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Barry film renderer</title>
+<style>html,body{margin:0;background:#172331;overflow:hidden}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script></head><body>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});
+renderer.setSize(1080,1920);renderer.setPixelRatio(1);
+renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.AgXToneMapping;renderer.toneMappingExposure=1.0;
+renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement);
+const scene=new THREE.Scene();scene.background=new THREE.Color('#243546');
+const pmrem=new THREE.PMREMGenerator(renderer);scene.environment=pmrem.fromScene(new RoomEnvironment(),.04).texture;scene.environmentIntensity=.25;
+const camera=new THREE.OrthographicCamera(-3,3,5.333,-5.333,.1,100);
+const [gltf,timeline]=await Promise.all([new GLTFLoader().loadAsync('/scene.glb'),fetch('/timeline.json').then(r=>r.json())]);
+scene.add(gltf.scene);
+const nodes=new Map();
+gltf.scene.traverse(o=>{
+  if(o.userData.anim_id!==undefined)nodes.set(o.userData.anim_id,o);
+  if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}
+});
+const hemi=new THREE.HemisphereLight(0xb8d6ff,0x39404a,.8);hemi.position.set(0,0,1);scene.add(hemi);
+function directional(color,power,position,target,shadows=false){
+ const l=new THREE.DirectionalLight(color,power);l.position.set(...position);l.target.position.set(...target);
+ scene.add(l,l.target);l.castShadow=shadows;
+ if(shadows){l.shadow.mapSize.set(2048,2048);Object.assign(l.shadow.camera,{left:-10,right:10,top:12,bottom:-12,near:.1,far:40});l.shadow.bias=-.0002;l.shadow.normalBias=.025;l.shadow.radius=3;}
+ return l;
+}
+directional(0xd3e7ff,2.6,[-3,-5,9],[1,1,1],true);
+directional(0xffbb72,1.5,[5,5,6],[1,1,2]);
+directional(0xffffff,1.0,[1,-8,4],[1,1,2]);
+const lavaLight=new THREE.PointLight(0xff5506,18,10,2);lavaLight.position.set(-.5,-3.4,-.3);scene.add(lavaLight);
+window.frame=(f)=>{
+ const state=timeline.frames[f];
+ state.p.forEach((p,i)=>{
+   const o=i===timeline.camera?camera:nodes.get(i);if(!o)return;
+   o.position.fromArray(p,0);o.quaternion.fromArray(p,3);o.scale.fromArray(p,7);
+ });
+ const h=state.o/2;camera.left=-h*9/16;camera.right=h*9/16;camera.top=h;camera.bottom=-h;camera.updateProjectionMatrix();
+ scene.updateMatrixWorld(true);renderer.render(scene,camera);
+};
+window.capture=(f)=>{window.frame(f);return renderer.domElement.toDataURL('image/jpeg',.97).split(',')[1]};
+window.frame(420);window.ready=true;
+window.renderInfo={nodes:nodes.size,expected:timeline.frames[0].p.length-1,renderer:renderer.getContext().getParameter(renderer.getContext().RENDERER)};
+</script></body></html>

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "notion-comment-files": {
+      "command": "node",
+      "args": ["tools/notion-comment-files/server.mjs"]
+    }
+  }
+}
