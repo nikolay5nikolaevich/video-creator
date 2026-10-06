@@ -1,0 +1,242 @@
+<!doctype html><html><head><meta charset="utf-8"><title>03 — мама проверяет</title>
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script></head><body>
+<script type="module">
+// Вся сцена и анимация ролика. Кадр — функция времени: window.capture(номер кадра, число проб).
+import * as THREE from 'three';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+const W=1080,H=1920,PI=Math.PI;
+const T=await fetch('/timing.json').then(r=>r.json()),E=T.ev,S=T.shots;
+const CAPTION=['Когда мама проверяет,','спишь ли ты'];   // вторая строка красная
+
+const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});
+renderer.setSize(W,H);renderer.setPixelRatio(1);
+renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.0;
+renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+const out=document.createElement('canvas');out.width=W;out.height=H;document.body.appendChild(out);
+const g2=out.getContext('2d',{willReadFrequently:true});
+const scene=new THREE.Scene();scene.background=new THREE.Color('#0b0d24');
+const camera=new THREE.PerspectiveCamera(50,W/H,.1,60);
+
+// ---------- помощники ----------
+const mat=(c,o={})=>new THREE.MeshStandardMaterial({color:c,roughness:.5,...o});
+const at=(o,x,y,z,parent=scene)=>{o.position.set(x,y,z);parent.add(o);return o};
+const grp=(x,y,z,parent)=>at(new THREE.Group(),x,y,z,parent);
+const box=(w,h,d,c,r=.06,o)=>{const m=new THREE.Mesh(new RoundedBoxGeometry(w,h,d,4,Math.min(r,w/2.01,h/2.01,d/2.01)),c.isMaterial?c:mat(c,o));m.castShadow=m.receiveShadow=true;return m};
+const tex=(w,h,draw)=>{const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;return t};
+const EZ={io:x=>x*x*(3-2*x),out:x=>1-(1-x)**3,in:x=>x*x*x,lin:x=>x,back:x=>1+3.2*(x-1)**3+2.2*(x-1)**2};
+// key(t,[[время,значение,сглаживание],...]) — от позы к позе; повтор значения даёт остановку
+function key(t,ks){
+  if(t<=ks[0][0])return ks[0][1];
+  for(let i=1;i<ks.length;i++)if(t<=ks[i][0]){
+    const [t0,v0]=ks[i-1],[t1,v1,e='io']=ks[i],u=EZ[e]((t-t0)/(t1-t0));
+    return Array.isArray(v0)?v0.map((v,j)=>v+(v1[j]-v)*u):v0+(v1-v0)*u;
+  }
+  return ks.at(-1)[1];
+}
+const shake=(t,t0,amp)=>t<t0?0:amp*Math.exp(-(t-t0)*9)*Math.sin((t-t0)*75);
+
+// ---------- лица: плоская картинка, меняется за один кадр ----------
+function drawFace(g,name,mom){
+  g.clearRect(0,0,256,256);g.lineCap=g.lineJoin='round';
+  const K='#1b1420',L=86,R=170,Y=122,lip=mom?'#c4264f':K;
+  const wide=(x,r,pr,dx=0,dy=0)=>{g.fillStyle='#fff';g.strokeStyle=K;g.lineWidth=6;g.beginPath();g.arc(x,Y,r,0,7);g.fill();g.stroke();g.fillStyle=K;g.beginPath();g.arc(x+dx,Y+dy,pr,0,7);g.fill();if(pr>8){g.fillStyle='#fff';g.beginPath();g.arc(x+dx-4,Y+dy-5,3.5,0,7);g.fill()}};
+  const half=(x,dx=0)=>{g.fillStyle='#fff';g.strokeStyle=K;g.lineWidth=6;g.beginPath();g.arc(x,Y-6,24,0,PI);g.closePath();g.fill();g.stroke();g.fillStyle=K;g.beginPath();g.arc(x+dx,Y+3,9,0,7);g.fill()};
+  const shut=(x,up)=>{g.strokeStyle=K;g.lineWidth=7;g.beginPath();up?g.arc(x,Y+10,19,PI*1.15,PI*1.85):g.arc(x,Y-10,19,PI*.15,PI*.85);g.stroke()};
+  const line=(a,b,c,d,w=7,col=K)=>{g.strokeStyle=col;g.lineWidth=w;g.beginPath();g.moveTo(a,b);g.lineTo(c,d);g.stroke()};
+  const curve=(a,b,cx,cy,c,d,col=lip)=>{g.strokeStyle=col;g.lineWidth=7;g.beginPath();g.moveTo(a,b);g.quadraticCurveTo(cx,cy,c,d);g.stroke()};
+  const blush=()=>{g.fillStyle='rgba(255,90,120,.45)';for(const x of[52,204]){g.beginPath();g.ellipse(x,Y+34,17,10,0,0,7);g.fill()}};
+  const sweat=()=>{g.fillStyle='#7fd0ff';g.beginPath();g.moveTo(222,62);g.quadraticCurveTo(240,96,222,100);g.quadraticCurveTo(204,96,222,62);g.fill()};
+  const gloom=()=>{for(let x=66;x<=190;x+=14)line(x,76,x,96+((x*7)%13),4,'rgba(70,90,210,.75)')};
+  const lashes=()=>{if(mom)for(const[x,s]of[[L,-1],[R,1]]){line(x+s*22,Y-10,x+s*33,Y-18,5);line(x+s*24,Y-2,x+s*36,Y-5,5)}};
+  const F={
+    happy(){wide(L,24,13,0,3);wide(R,24,13,0,3);line(64,82,104,76);line(152,76,192,82);
+      g.fillStyle='#5a1a2a';g.strokeStyle=K;g.lineWidth=6;g.beginPath();g.moveTo(94,166);g.lineTo(162,166);g.quadraticCurveTo(128,228,94,166);g.fill();g.stroke();g.fillStyle='#ff7a90';g.beginPath();g.ellipse(128,192,13,7,0,0,7);g.fill()},
+    panic(){wide(L,27,6);wide(R,27,6);line(62,74,104,66);line(152,66,194,74);sweat();
+      g.strokeStyle=K;g.lineWidth=7;g.beginPath();g.moveTo(94,178);for(let i=1;i<=8;i++)g.lineTo(94+i*8.5,178+(i%2?-8:8));g.stroke()},
+    sleep(){shut(L);shut(R);g.fillStyle='#5a1a2a';g.beginPath();g.ellipse(128,180,9,11,0,0,7);g.fill()},
+    peek(){shut(L);wide(R,24,10,-10,5);line(112,180,144,180)},
+    grin(){half(L,-9);half(R,-9);line(60,92,106,98);line(150,98,196,92);curve(100,172,134,202,166,160,K);blush()},
+    horror(){wide(L,31,4);wide(R,31,4);gloom();sweat();
+      g.fillStyle='#3a0f1c';g.strokeStyle=K;g.lineWidth=6;g.beginPath();g.roundRect(100,162,56,66,22);g.fill();g.stroke();g.fillStyle='#fff';g.fillRect(110,166,36,9);g.fillStyle='#ff7a90';g.beginPath();g.ellipse(128,214,14,8,0,0,7);g.fill()},
+    susp(dx=5){half(L,dx);half(R,dx);lashes();line(60,92,110,96,9);line(148,84,196,74,9);line(108,182,148,182,8,lip)},
+    lookL(){F.susp(-13)},lookR(){F.susp(13)},
+    hmph(){line(L-20,Y,L+20,Y+4);line(R-20,Y+4,R+20,Y);lashes();line(62,88,108,94,9);line(148,94,194,88,9);curve(110,186,128,174,146,186)},
+    glare(){wide(L,27,7);wide(R,27,7);lashes();line(56,70,114,96,11);line(200,70,142,96,11);curve(104,192,128,172,152,192);
+      g.strokeStyle='rgba(220,40,60,.8)';g.lineWidth=2.5;for(const x of[L,R]){g.beginPath();g.moveTo(x-24,Y-8);g.lineTo(x-12,Y-3);g.moveTo(x+24,Y+8);g.lineTo(x+13,Y+4);g.stroke()}},
+  };
+  F[name]();
+}
+
+// ---------- персонаж ----------
+function makeChar(p){
+  const root=grp(0,0,0),[tw,th,td]=p.torso,[aw,ah]=p.arm,[lw,lh]=p.leg,hs=p.head;
+  const body=grp(0,lh,0,root);
+  at(box(tw,th,td,p.top,.13),0,th/2,0,body);
+  const neck=grp(0,th-.02,0,body);
+  at(box(hs,hs*.95,hs,p.skin,.22),0,hs*.47,0,neck);
+  const fc=document.createElement('canvas');fc.width=fc.height=256;
+  const ft=new THREE.CanvasTexture(fc);ft.colorSpace=THREE.SRGBColorSpace;
+  at(new THREE.Mesh(new THREE.PlaneGeometry(hs*.9,hs*.9),new THREE.MeshStandardMaterial({map:ft,transparent:true,roughness:.7,depthWrite:false})),0,hs*.47,hs/2+.004,neck);
+  const arm=s=>{const g=grp(s*(tw/2+aw/2-.02),th-.1,0,body);at(box(aw,ah*.68,aw,p.sleeve,.11),0,-ah*.34+.1,0,g);at(box(aw*.96,ah*.36,aw*.96,p.skin,.11),0,-ah*.82+.1,0,g);return g};
+  const leg=s=>{const g=grp(s*(lw/2+.02),lh,0,root);at(box(lw,lh*.8,lw*1.05,p.bottom,.1),0,-lh*.4,0,g);at(box(lw*1.03,lh*.24,lw*1.35,p.shoe,.09),0,-lh*.88,lw*.12,g);return g};
+  let cur;const face=n=>{if(n!==cur){cur=n;drawFace(fc.getContext('2d'),n,p.mom);ft.needsUpdate=true}};
+  return {root,body,neck,armL:arm(-1),armR:arm(1),legL:leg(-1),legR:leg(1),face};
+}
+const pajama=tex(256,256,(g,w,h)=>{g.fillStyle='#69b4f0';g.fillRect(0,0,w,h);g.fillStyle='#ffe066';
+  for(const[x,y,r]of[[50,60,20],[170,40,13],[120,140,22],[210,180,16],[40,200,12]]){g.beginPath();for(let i=0;i<10;i++){const a=i*PI/5-PI/2,q=i%2?r*.45:r;g.lineTo(x+Math.cos(a)*q,y+Math.sin(a)*q)}g.fill()}});
+const kid=makeChar({skin:'#f2b48a',top:mat('#ffffff',{map:pajama}),sleeve:'#69b4f0',bottom:'#4f97dd',shoe:'#f2b48a',torso:[.8,.75,.45],arm:[.3,.72],leg:[.36,.7],head:.95});
+for(const[w,h,d,x,y,z,rz]of[[1.05,.3,1.05,0,.88,0,0],[1.05,.62,.3,0,.56,-.4,0],[.14,.36,.55,-.5,.7,-.14,0],[.14,.36,.55,.5,.7,-.14,0],[.34,.16,.16,-.32,.8,.47,.25],[.36,.17,.16,0,.79,.48,-.1],[.34,.16,.16,.32,.81,.47,-.3]])
+  at(box(w,h,d,'#8a5228',.1),x,y,z,kid.neck).rotation.z=rz;
+const mom=makeChar({mom:true,skin:'#f6c7a6',top:'#f06aa4',sleeve:'#f06aa4',bottom:'#f06aa4',shoe:'#ffd2e6',torso:[.95,1.0,.55],arm:[.32,.95],leg:[.42,.95],head:.98});
+at(box(.99,.12,.59,'#b53a78',.05),0,.42,0,mom.body);
+for(const[w,h,d,x,y,z]of[[1.08,.3,1.08,0,.91,0],[1.08,.78,.28,0,.54,-.43],[.14,.46,.55,-.52,.68,-.16],[.14,.46,.55,.52,.68,-.16]])at(box(w,h,d,'#27306e',.1),x,y,z,mom.neck);
+{const bun=at(new THREE.Mesh(new THREE.SphereGeometry(.32,20,14),mat('#27306e')),0,1.2,-.18,mom.neck);bun.castShadow=true;
+ for(const x of[-.32,0,.32]){const c=at(new THREE.Mesh(new THREE.CylinderGeometry(.1,.1,.28,14),mat('#ff9ecb')),x,1.06,.36,mom.neck);c.rotation.z=PI/2;c.castShadow=true}}
+
+// ---------- комната ----------
+const WALL='#5a61c4',TRIM='#f4ead8',WOOD='#b9794a';
+at(box(7,.2,7.6,'#8a6450',.02),0,-.1,.2);                                   // пол
+at(box(7,.2,7.6,'#4a4fa8',.02),0,4.7,.2);                                   // потолок
+at(box(1.05,4.6,.2,WALL,.02),-2.675,2.3,-3.3);at(box(3.85,4.6,.2,WALL,.02),1.275,2.3,-3.3);at(box(1.5,1.3,.2,WALL,.02),-1.4,3.95,-3.3);
+at(box(.2,4.6,7.6,WALL,.02),-3.3,2.3,.2);at(box(.2,4.6,7.6,WALL,.02),3.3,2.3,.2);at(box(7,4.6,.2,WALL,.02),0,2.3,3.9);
+at(box(.14,3.4,.3,TRIM,.03),-2.2,1.7,-3.25);at(box(.14,3.4,.3,TRIM,.03),-.6,1.7,-3.25);at(box(1.74,.14,.3,TRIM,.03),-1.4,3.37,-3.25);
+const door=grp(-2.13,0,-3.14);at(box(1.48,3.28,.1,'#c98a4b',.03),.74,1.64,0,door);at(box(1.1,1.1,.03,'#b9783d',.02),.74,2.3,.06,door);at(box(1.1,1.1,.03,'#b9783d',.02),.74,.9,.06,door);
+at(new THREE.Mesh(new THREE.SphereGeometry(.09,14,10),mat('#ffd76a',{roughness:.25,metalness:.6})),1.3,1.55,.12,door);
+// коридор за дверью
+at(box(4,.2,3.4,'#c9a37a',.02),-1.4,-.1,-5);at(box(4,5,.2,mat('#ffd9a0',{emissive:'#ffb050',emissiveIntensity:1.6}),.02),-1.4,2.3,-6.6);
+at(box(.2,5,3.4,'#e8b77c',.02),-3.3,2.3,-5);at(box(.2,5,3.4,'#e8b77c',.02),.5,2.3,-5);at(box(4,.2,3.4,'#e8b77c',.02),-1.4,4.7,-5);
+// окно с луной
+at(box(.08,1.9,1.9,TRIM,.03),-3.2,2.7,.4);at(box(.06,1.65,1.65,mat('#243a8a',{emissive:'#5f8cff',emissiveIntensity:1.3}),.02),-3.16,2.7,.4);
+at(box(.07,1.65,.08,TRIM,.02),-3.14,2.7,.4);at(box(.07,.08,1.65,TRIM,.02),-3.14,2.7,.4);
+{const m=at(new THREE.Mesh(new THREE.CircleGeometry(.28,24),new THREE.MeshBasicMaterial({color:'#fff6c8'})),-3.12,3.05,.05);m.rotation.y=PI/2}
+// ковёр, плакаты, полка, звёзды на стене
+{const r=at(new THREE.Mesh(new THREE.CylinderGeometry(1.6,1.6,.04,40),mat('#37b3ad',{roughness:.9})),.1,.02,-.7);r.receiveShadow=true}
+at(box(1.0,1.3,.04,mat('#ff5d73',{emissive:'#ff5d73',emissiveIntensity:.12}),.02),.6,2.9,-3.18);at(box(.9,.9,.04,mat('#ffd447',{emissive:'#ffd447',emissiveIntensity:.12}),.02),1.9,3.2,-3.18);
+at(box(1.4,.1,.35,WOOD,.03),2.4,2.3,-3.0);at(box(.3,.4,.25,'#5ad17a',.06),2.0,2.55,-3.0);at(box(.25,.55,.25,'#ff8a3d',.06),2.45,2.62,-3.0);at(box(.3,.3,.25,'#b06cff',.06),2.85,2.5,-3.0);
+for(const[y,z]of[[3.6,-1.6],[3.9,-.6],[3.3,1.5],[4.1,2.2],[3.7,.3]])at(box(.03,.16,.16,mat('#eaffb0',{emissive:'#d8ff6a',emissiveIntensity:1.5}),.02),3.18,y,z).rotation.x=y;
+// кровать
+at(box(1.9,.5,3.4,WOOD,.06),2.25,.3,-.7);at(box(1.9,1.4,.18,WOOD,.07),2.25,.9,1.06);at(box(1.72,.36,3.2,'#f4f0ff',.13),2.25,.72,-.7);
+at(box(1.3,.3,.75,'#ffffff',.14),2.25,1.0,.5);
+const blanket=at(box(1.78,.95,2.25,'#ff6a3d',.3),2.25,1.22,-1.2);
+// стол, монитор, клавиатура, кресло
+at(box(2.3,.1,.95,'#e8dcc8',.04),.6,1.25,2.0);for(const x of[-.45,1.65])at(box(.1,1.2,.85,'#cdbfa6',.03),x,.6,2.0);
+const monitor=grp(.6,0,2.2);at(box(1.5,.9,.08,'#22252e',.04),0,2.0,0,monitor);at(box(.14,.5,.1,'#22252e',.03),0,1.5,.04,monitor);at(box(.6,.05,.3,'#22252e',.02),0,1.32,.04,monitor);
+const screenTex=tex(512,288,(g,w,h)=>{const s=g.createLinearGradient(0,0,0,h);s.addColorStop(0,'#3fd0ff');s.addColorStop(1,'#b6f3ff');g.fillStyle=s;g.fillRect(0,0,w,h);g.fillStyle='#48c96a';g.fillRect(0,200,w,88);
+  g.fillStyle='#ffd447';g.fillRect(60,120,70,80);g.fillStyle='#ff5d73';g.fillRect(360,90,90,110);g.fillStyle='#fff';g.font='900 64px Arial Black';g.textAlign='center';g.strokeStyle='#1b1420';g.lineWidth=10;g.strokeText('LEVEL 99',w/2,80);g.fillText('LEVEL 99',w/2,80)});
+{const m=at(new THREE.Mesh(new THREE.PlaneGeometry(1.38,.78),new THREE.MeshBasicMaterial({map:screenTex})),0,2.0,-.045,monitor);m.rotation.y=PI}
+at(box(.95,.06,.32,'#2a2d3a',.02),.6,1.33,1.74);at(box(.9,.02,.04,mat('#ff3df0',{emissive:'#ff3df0',emissiveIntensity:2}),.01),.6,1.345,1.9);at(box(.14,.06,.2,'#2a2d3a',.03),1.35,1.33,1.74);
+const chair=grp(.6,0,1.0);at(box(.82,.14,.82,'#e23b4e',.06),0,.68,0,chair);at(box(.82,1.3,.14,'#e23b4e',.07),0,1.4,-.42,chair);at(box(.5,.9,.16,'#1d1f2a',.06),0,1.4,-.4,chair);
+{const p=at(new THREE.Mesh(new THREE.CylinderGeometry(.06,.06,.6,10),mat('#1d1f2a')),0,.32,0,chair);p.castShadow=true;for(let i=0;i<5;i++){const l=at(box(.5,.07,.1,'#1d1f2a',.03),0,.05,0,chair);l.rotation.y=i*PI*.4;l.translateX(.25)}}
+// буквы Z над спящим
+const zTex=tex(128,128,g=>{g.font='900 110px Arial Black';g.textAlign='center';g.textBaseline='middle';g.lineWidth=14;g.strokeStyle='#27306e';g.strokeText('Z',64,68);g.fillStyle='#fff';g.fillText('Z',64,68)});
+const zs=[0,1,2].map(()=>{const s=new THREE.Sprite(new THREE.SpriteMaterial({map:zTex,transparent:true,depthWrite:false}));scene.add(s);return s});
+
+// ---------- свет ----------
+scene.add(new THREE.HemisphereLight('#cfd6ff','#75648f',1.25));
+const moon=at(new THREE.DirectionalLight('#c4d4ff',1.5),-5,7,1.5);moon.castShadow=true;moon.shadow.mapSize.set(2048,2048);Object.assign(moon.shadow.camera,{left:-6,right:6,top:6,bottom:-6,near:.5,far:25});moon.shadow.bias=-.0004;moon.shadow.normalBias=.03;moon.shadow.radius=4;scene.add(moon.target);
+const mon=at(new THREE.PointLight('#55e0ff',14,8,2),.6,1.95,1.7);
+const hall=at(new THREE.SpotLight('#ffbe6e',420,16,.62,.55,1.6),-1.2,2.7,-6.3);hall.target.position.set(-.6,.3,.5);scene.add(hall.target);hall.castShadow=true;hall.shadow.mapSize.set(2048,2048);hall.shadow.bias=-.0004;hall.shadow.normalBias=.03;hall.shadow.radius=5;
+const fill=new THREE.DirectionalLight('#ffffff',0);scene.add(fill,fill.target);          // заполнение «от камеры», своё на каждый план
+const spot=new THREE.SpotLight('#ffffff',0,12,.3,.6,1.2);scene.add(spot,spot.target);    // акцент плана
+
+// ---------- постановка: tf — время кадра (подмена лиц, склейки), t — время пробы (движение) ----------
+const LIE=[2.25,1.38,-1.45],HEAD=[2.25,1.86,.43];
+function stage(tf,ts){
+  const si=S.findLastIndex(s=>tf>=s-1e-6),t=Math.min(Math.max(ts,S[si]),(S[si+1]??T.dur)-1e-4);
+  // значения по умолчанию
+  for(const c of[kid,mom]){c.root.rotation.set(0,0,0);c.root.scale.set(1,1,1);c.body.rotation.set(0,0,0);c.neck.rotation.set(0,0,0);for(const l of[c.armL,c.armR,c.legL,c.legR])l.rotation.set(0,0,0)}
+  monitor.visible=true;mom.root.visible=false;blanket.visible=true;blanket.scale.set(1,1,1);zs.forEach(z=>z.visible=false);
+  fill.intensity=0;spot.intensity=0;mon.intensity=14+2*Math.sin(t*17)+1.5*Math.sin(t*41);
+  door.rotation.y=-key(t,[[0,0],[E.creak,0],[2.05,.42,'out'],[2.5,.46],[3.5,1.08],[E.doorClose,1.08],[E.doorClose+.38,.3],[99,.3]]);
+  chair.rotation.y=t<E.zip+.08?.06*Math.sin(t*3):9*(1-Math.exp(-(t-E.zip-.08)/1.7));
+  // сын в кровати (по умолчанию для всех планов после первого)
+  kid.root.position.set(...LIE);kid.root.rotation.set(PI/2,PI,0);
+  blanket.scale.y=1+.035*Math.sin(t*2.6);
+  kid.face(tf<E.panic?'happy':tf<S[1]?'panic':tf<E.eye?'sleep':tf<E.grin?'peek':tf<E.horror?'grin':'horror');
+  // мама
+  mom.root.position.set(...key(t,[[2.5,[-1.4,0,-4.5]],[3.4,[-1.4,0,-3.62],'out'],[E.doorClose-.05,[-1.4,0,-3.62]],[E.doorClose+.3,[-1.4,0,-4.6]],[S[5]-.01,[-1.4,0,-4.6]],[S[5],[-1.3,0,-4.2],'lin']]));
+  mom.face(tf<S[3]?'susp':tf<6.62?'lookL':tf<6.98?'lookR':tf<S[5]?'hmph':'glare');
+  let cam;
+  if(si===0){                      // 1: за компьютером
+    monitor.visible=false;blanket.visible=false;
+    const p=E.panic,z=E.zip;
+    kid.root.position.set(key(t,[[z,.6],[z+.09,.42,'out'],[z+.26,7,'in']]),.05,1.05);
+    kid.root.rotation.set(0,0,key(t,[[z,0],[z+.09,.28,'out'],[z+.2,-.55]]));
+    kid.legL.rotation.x=kid.legR.rotation.x=-PI/2;
+    const calm=t<p;
+    kid.body.rotation.x=key(t,[[p,.1],[p+.1,-.16,'back'],[z,-.14]])+(calm?.02*Math.sin(t*22):0);
+    kid.neck.rotation.x=calm?-.06+.04*Math.sin(t*11):key(t,[[p,-.06],[p+.08,-.14,'out']]);
+    kid.neck.rotation.z=calm?.06*Math.sin(t*5.5):0;
+    kid.armL.rotation.x=calm?-1.2+.16*Math.sin(t*46):key(t,[[p,-1.2],[p+.1,-2.0,'back']]);
+    kid.armR.rotation.x=calm?-1.2+.16*Math.cos(t*39):key(t,[[p,-1.2],[p+.1,-2.1,'back']]);
+    kid.armL.rotation.z=calm?0:-.45;kid.armR.rotation.z=calm?0:.45;
+    kid.root.position.y+=calm?.012*Math.abs(Math.sin(t*23)):0;
+    cam={p:key(t,[[0,[.2,1.85,3.7]],[2.5,[.15,1.85,3.55],'lin']]),q:[.32,1.9,.7],fov:60,ap:.03,roll:-.05};mon.intensity*=.08;
+    fill.color.set('#fff1e2');fill.intensity=1.0;
+  }else if(si===1){                // 2: мама заглядывает
+    mom.root.visible=true;
+    const l=key(t,[[2.5,0],[3.4,1,'out']]);
+    mom.body.rotation.x=.45*l;mom.neck.rotation.set(-.25*l,.4*l+.05*Math.sin(t*2),-.12*l);
+    cam={p:key(t,[[2.5,[.7,2.0,-.2]],[4.2,[.5,2.05,-.6],'lin']]),q:[-1.35,2.3,-3.0],fov:40,ap:.035,roll:.07};
+    fill.color.set('#e6ecff');fill.intensity=1.3;
+  }else if(si===2){                // 3: общий план, «спит»
+    mom.root.visible=true;mom.body.rotation.x=.45;mom.neck.rotation.x=-.25;
+    cam={p:[-.9,4.1,-2.3],q:key(t,[[4.2,[1.5,1.0,.3]],[6.2,[1.8,1.0,.3]]]),fov:62,ap:.02,roll:0};
+    fill.color.set('#e0e6ff');fill.intensity=.9;
+  }else if(si===3){                // 4: мама осматривается и уходит
+    mom.root.visible=true;
+    const out=key(t,[[E.doorClose-.05,1],[E.doorClose+.25,0]]);
+    mom.body.rotation.x=.45*out;
+    mom.neck.rotation.set(-.25*out,key(t,[[6.2,.55],[6.55,.55],[6.68,-.5,'out'],[6.95,-.5],[7.05,0,'out']]),0);
+    cam={p:[-.6,1.0,-1.3],q:[-1.4,2.3,-3.0],fov:44,ap:.03,roll:-.08};
+    fill.color.set('#e6ecff');fill.intensity=1.3;
+  }else if(si===4||si===6){        // 5 и 7: лицо сына на подушке
+    const h=si===6,e=E.eye;
+    kid.neck.rotation.set(h?.2:0,key(t,[[e,0],[e+.1,-.22,'back'],[E.grin,-.22],[E.grin+.12,-.3]])+(h?.25+shake(t,E.horror,.12):0),0);
+    if(h){blanket.position.z=-1.05;blanket.scale.set(1,1.05,1)}else blanket.position.z=-1.2;
+    cam=h?{p:key(t,[[10.6,[1.9,3.7,.95]],[11.5,[1.95,3.45,.9],'out']]),q:[2.25,1.9,.32],fov:46,ap:.03,roll:.12,up:[0,.2,1]}
+         :{p:key(t,[[7.6,[1.95,3.95,.7]],[9.6,[2.0,3.65,.65],'lin']]),q:[2.25,1.86,.43],fov:40,ap:.03,roll:-.1,up:[0,.2,1]};
+    fill.color.set('#e0e6ff');fill.intensity=h?1.0:1.3;
+    if(h){spot.color.set('#ffb65c');spot.intensity=40;spot.angle=.16;spot.position.set(-1.2,2.4,-3.6);spot.target.position.set(2.25,1.5,.45)}
+  }else{                           // 6: глаз в щели
+    mom.root.visible=true;mom.neck.rotation.set(0,.54,0);
+    const k=shake(t,E.boom,.05);
+    cam={p:[1.14+k,1.9,.1],q:[-1.15,2.4+k,-3.72],fov:key(t,[[9.6,26],[10.6,16,'out']]),ap:.012,roll:.1};
+    fill.color.set('#ffd0d6');fill.intensity=.6;
+    spot.color.set('#bfe9ff');spot.intensity=18;spot.angle=.2;spot.position.set(1.0,2.0,-.2);spot.target.position.set(-1.15,2.4,-3.72);
+  }
+  // буквы Z, пока «спит»
+  if((si===2||si===4)&&tf<E.eye)zs.forEach((z,i)=>{const u=(t*.55+i/3)%1;z.visible=true;z.position.set(HEAD[0]-.5-.5*u+.08*Math.sin(u*9+i),HEAD[1]+.5+1.3*u,HEAD[2]+.25-.3*u);z.scale.setScalar(.22+.4*u);z.material.opacity=Math.sin(PI*u)});
+  return cam;
+}
+const R=new THREE.Vector3(),U=new THREE.Vector3(),Q=new THREE.Vector3();
+function view(c,dx,dy){
+  camera.fov=c.fov;camera.updateProjectionMatrix();camera.up.set(...(c.up||[0,1,0]));
+  camera.position.set(...c.p);Q.set(...c.q);camera.lookAt(Q);camera.updateMatrixWorld();
+  R.setFromMatrixColumn(camera.matrixWorld,0);U.setFromMatrixColumn(camera.matrixWorld,1);
+  camera.position.addScaledVector(R,dx*c.ap).addScaledVector(U,dy*c.ap);camera.lookAt(Q);camera.rotateZ(c.roll||0);   // сдвиг по диафрагме: резкость в точке q
+  fill.position.copy(camera.position).addScaledVector(R,-2).addScaledVector(U,2.5);fill.target.position.copy(Q);
+}
+function caption(){
+  g2.font='900 62px "Arial Black",Arial';g2.textAlign='center';g2.lineJoin='round';g2.lineWidth=14;g2.strokeStyle='#000';
+  CAPTION.forEach((s,i)=>{const y=300+i*78;g2.strokeText(s,W/2,y);g2.fillStyle=i?'#ff2b2b':'#fff';g2.fillText(s,W/2,y)});
+}
+// Кадр f из n проб: пробы разнесены по времени (размытие движения) и по диафрагме (размытый фон)
+const acc=new Float32Array(W*H*3);
+window.capture=(f,n=16,q=.93)=>{
+  const tf=f/T.fps;acc.fill(0);
+  for(let i=0;i<n;i++){
+    const r=Math.sqrt((i+.5)/n),a=i*2.39996;
+    view(stage(tf,tf+((i+.5)/n-.5)*.6/T.fps),n>1?r*Math.cos(a):0,n>1?r*Math.sin(a):0);
+    renderer.render(scene,camera);g2.drawImage(renderer.domElement,0,0);
+    const d=g2.getImageData(0,0,W,H).data;for(let j=0,k=0;j<d.length;j+=4,k+=3){acc[k]+=d[j];acc[k+1]+=d[j+1];acc[k+2]+=d[j+2]}
+  }
+  const im=g2.createImageData(W,H),d=im.data;for(let j=0,k=0;j<d.length;j+=4,k+=3){d[j]=acc[k]/n;d[j+1]=acc[k+1]/n;d[j+2]=acc[k+2]/n;d[j+3]=255}
+  g2.putImageData(im,0,0);
+  const v=g2.createRadialGradient(W/2,H/2,H*.35,W/2,H/2,H*.75);v.addColorStop(0,'rgba(0,0,10,0)');v.addColorStop(1,'rgba(0,0,10,.5)');g2.fillStyle=v;g2.fillRect(0,0,W,H);
+  caption();
+  return out.toDataURL('image/jpeg',q).split(',')[1];
+};
+window.frames=Math.round(T.dur*T.fps);window.ready=true;
+</script></body></html>
