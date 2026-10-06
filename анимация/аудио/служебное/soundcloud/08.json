@@ -1,0 +1,28 @@
+{
+  "name": "GRIMACE",
+  "artist": "CG5 & DHeusta",
+  "example": "U9X2rKV8U44",
+  "entries": [
+    {
+      "id": "1553271832",
+      "title": "GRIMACE (with DHeusta)",
+      "duration": 74.445,
+      "uploader": "CG5",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1553271832"
+    },
+    {
+      "id": "2232699662",
+      "title": "Grimace (feat. Djsmell)",
+      "duration": 74.445,
+      "uploader": "CG5",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A2232699662"
+    },
+    {
+      "id": "1640321799",
+      "title": "GRIMACE (feat. DHeusta)",
+      "duration": 74.419,
+      "uploader": "CG5",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1640321799"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Faz de Chicote",
+  "artist": "Lyu, ITALO SENA, DJ PBeats & DJ VYZ",
+  "example": "-b3gj7yd320",
+  "entries": [
+    {
+      "id": "1964030043",
+      "title": "FAZ DE CHICOTE - Italo Sena, Lyu, DJ Pbeats",
+      "duration": 161.433,
+      "uploader": "Funk 24por48",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1964030043"
+    },
+    {
+      "id": "1951843175",
+      "title": "Faz de Chicote",
+      "duration": 150.616,
+      "uploader": "Lyu",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1951843175"
+    },
+    {
+      "id": "1951849695",
+      "title": "Faz de Chicote (Slowed)",
+      "duration": 195.729,
+      "uploader": "Lyu",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1951849695"
+    }
+  ]
+}

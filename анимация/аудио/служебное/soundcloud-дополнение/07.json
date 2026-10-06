@@ -1,0 +1,77 @@
+{
+  "name": "Maps",
+  "artist": "Yeah Yeah Yeahs",
+  "example": "wMPzfGkOsi4",
+  "entries": [
+    {
+      "id": "155167598",
+      "title": "Maroon 5 - Maps",
+      "duration": 90.168,
+      "uploader": "Interscope Records",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A155167598"
+    },
+    {
+      "id": "287451697",
+      "title": "Maps",
+      "duration": 30.0,
+      "uploader": "Maroon 5",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A287451697"
+    },
+    {
+      "id": "742913698",
+      "title": "Give Me Some",
+      "duration": 196.394,
+      "uploader": "Maps",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A742913698"
+    },
+    {
+      "id": "669332699",
+      "title": "Take My Love",
+      "duration": 186.456,
+      "uploader": "Maps",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A669332699"
+    },
+    {
+      "id": "259114700",
+      "title": "Maps",
+      "duration": 220.032,
+      "uploader": "Yeah Yeah Yeahs",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A259114700"
+    },
+    {
+      "id": "1284404614",
+      "title": "MAPS - (Hardstyle Remix by DAVNCI)",
+      "duration": 144.817,
+      "uploader": "DAVNCI",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1284404614"
+    },
+    {
+      "id": "1322643130",
+      "title": "Maps Hardstyle (Goku Rage)",
+      "duration": 143.189,
+      "uploader": "Curious",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1322643130"
+    },
+    {
+      "id": "259053607",
+      "title": "Maps",
+      "duration": 30.0,
+      "uploader": "Yeah Yeah Yeahs",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A259053607"
+    },
+    {
+      "id": "1220177827",
+      "title": "See Me Go",
+      "duration": 146.051,
+      "uploader": "Maps",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1220177827"
+    },
+    {
+      "id": "2318527952",
+      "title": "maps",
+      "duration": 189.286,
+      "uploader": "zandr",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A2318527952"
+    }
+  ]
+}

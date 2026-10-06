@@ -1,0 +1,28 @@
+{
+  "name": "Die With A Smile",
+  "artist": "Lady Gaga & Bruno Mars",
+  "example": "z7CAU9bN42w",
+  "entries": [
+    {
+      "id": "2028935000",
+      "title": "Lady Gaga, Bruno Mars - Die with a smile (tik tok remix)",
+      "duration": 224.42,
+      "uploader": "Slimt62",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A2028935000"
+    },
+    {
+      "id": "1898603127",
+      "title": "Die With A Smile",
+      "duration": 30.0,
+      "uploader": "ladygaga",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1898603127"
+    },
+    {
+      "id": "2043582724",
+      "title": "Die With A Smile - Lady Gaga, Bruno Mars (1 HOUR)",
+      "duration": 3700.266,
+      "uploader": "daeun",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A2043582724"
+    }
+  ]
+}

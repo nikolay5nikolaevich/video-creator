@@ -1,0 +1,28 @@
+{
+  "name": "Faded (Luke Christopher Remix)",
+  "artist": "Alan Walker",
+  "example": "b8SNiHBAw0M",
+  "entries": [
+    {
+      "id": "260884009",
+      "title": "Faded (Luke Christopher Remix)",
+      "duration": 206.383,
+      "uploader": "Alan Walker",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A260884009"
+    },
+    {
+      "id": "261228168",
+      "title": "Alan Walker - Faded (Luke Christopher Remix)",
+      "duration": 206.406,
+      "uploader": "Luke Christopher",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A261228168"
+    },
+    {
+      "id": "308826084",
+      "title": "Alan Walker' Faded - Remix Drum And Bass",
+      "duration": 147.003,
+      "uploader": "Chris Helsby - CKH",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A308826084"
+    }
+  ]
+}

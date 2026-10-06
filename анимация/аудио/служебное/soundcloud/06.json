@@ -1,0 +1,28 @@
+{
+  "name": "House of Memories (Sped Up Version)",
+  "artist": "Panic! At The Disco",
+  "example": "Mt_z-q21JAg",
+  "entries": [
+    {
+      "id": "1369272895",
+      "title": "House of Memories (Sped Up Version)",
+      "duration": 164.636,
+      "uploader": "Panic! At The Disco",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1369272895"
+    },
+    {
+      "id": "1273149964",
+      "title": "House Of Memories - Panic! At The Disco (sped up)",
+      "duration": 159.445,
+      "uploader": "Best Sped Up Songs",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1273149964"
+    },
+    {
+      "id": "1265902855",
+      "title": "house of memories - panic! at the disco // sped up",
+      "duration": 170.99,
+      "uploader": "speed songs",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1265902855"
+    }
+  ]
+}

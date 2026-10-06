@@ -1,0 +1,28 @@
+{
+  "name": "My Way (2008 Remastered)",
+  "artist": "Frank Sinatra",
+  "example": "mcDak2IgFYY",
+  "entries": [
+    {
+      "id": "259086694",
+      "title": "My Way (2008 Remastered)",
+      "duration": 30.0,
+      "uploader": "Frank Sinatra",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A259086694"
+    },
+    {
+      "id": "259055335",
+      "title": "The Way You Look Tonight (2008 Remastered)",
+      "duration": 30.0,
+      "uploader": "Frank Sinatra",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A259055335"
+    },
+    {
+      "id": "2289377624",
+      "title": "Hatsune Miku - My Way (2008 Remastered) [Frank Sinatra Cover] (Credits to @pishposh6795)",
+      "duration": 268.608,
+      "uploader": "glitch",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A2289377624"
+    }
+  ]
+}

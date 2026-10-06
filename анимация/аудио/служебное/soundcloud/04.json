@@ -1,0 +1,28 @@
+{
+  "name": "Freaks",
+  "artist": "Timmy Trumpet & Savage",
+  "example": "aCbOrD5n-mM",
+  "entries": [
+    {
+      "id": "176873805",
+      "title": "Timmy Trumpet & Savage - Freaks (Radio Edit)",
+      "duration": 168.849,
+      "uploader": "pmrecordings",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A176873805"
+    },
+    {
+      "id": "963219529",
+      "title": "Timmy Trumpet & Savage - Freaks [Slowed + Reverb]",
+      "duration": 173.326,
+      "uploader": "LilPandx",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A963219529"
+    },
+    {
+      "id": "310316102",
+      "title": "Freaks (Radio Edit)",
+      "duration": 30.0,
+      "uploader": "Timmy Trumpet",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A310316102"
+    }
+  ]
+}

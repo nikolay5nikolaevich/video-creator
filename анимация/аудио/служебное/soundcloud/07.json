@@ -1,0 +1,28 @@
+{
+  "name": "Maps",
+  "artist": "Yeah Yeah Yeahs",
+  "example": "wMPzfGkOsi4",
+  "entries": [
+    {
+      "id": "259114700",
+      "title": "Maps",
+      "duration": 220.032,
+      "uploader": "Yeah Yeah Yeahs",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A259114700"
+    },
+    {
+      "id": "259053607",
+      "title": "Maps",
+      "duration": 30.0,
+      "uploader": "Yeah Yeah Yeahs",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A259053607"
+    },
+    {
+      "id": "1928564741",
+      "title": "Yeah Yeah Yeahs - Maps (Orchestral Version by finsong8)",
+      "duration": 129.683,
+      "uploader": "Gideon",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1928564741"
+    }
+  ]
+}

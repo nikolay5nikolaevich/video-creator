@@ -17,7 +17,7 @@ import numpy as np
 
 SR = 44100
 DUR = 24.8
-TRACK = "ассеты/музыка/Pixel Peeker Polka - faster.mp3"
+TRACK = "../аудио/фоновая-музыка/31-Pixel Peeker Polka (faster)/трек.mp3"
 MUSIC_OFFSET = 0.24  # с этой секунды трека начинается ролик: сильная доля попадает на удар T2
 STEP = 0.15517  # восьмая доля трека
 buf = [0.0] * int(SR * DUR)

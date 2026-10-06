@@ -1,0 +1,28 @@
+{
+  "name": "Montagem Supersonic",
+  "artist": "KHAOS, Jmilton & Mc Jajá",
+  "example": "XDg0PJARk7k",
+  "entries": [
+    {
+      "id": "2218888364",
+      "title": "KHAOS & JMILTON & MC JAJA - MONTAGEM SUPERSONIC (FELMAX REMIX)",
+      "duration": 137.189,
+      "uploader": "FELMAX",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A2218888364"
+    },
+    {
+      "id": "2127633504",
+      "title": "Montagem Supersonic",
+      "duration": 87.863,
+      "uploader": "KHAOS",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A2127633504"
+    },
+    {
+      "id": "2127637626",
+      "title": "Montagem Supersonic (Ultra Slowed)",
+      "duration": 124.233,
+      "uploader": "KHAOS",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A2127637626"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Bananza (Belly Dancer)",
+  "artist": "Akon",
+  "example": "72v-NeKi8II",
+  "entries": [
+    {
+      "id": "255878669",
+      "title": "Belly Dancer (Bananza) (Remix) [feat. Kardinal Offishall]",
+      "duration": 207.103,
+      "uploader": "AKON",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A255878669"
+    },
+    {
+      "id": "255878026",
+      "title": "Bananza (Belly Dancer) (12\" Version)",
+      "duration": 30.0,
+      "uploader": "AKON",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A255878026"
+    },
+    {
+      "id": "2101938690",
+      "title": "Akon - Bananza (Belly Dancer) [Samuel Prince Remix]",
+      "duration": 314.8,
+      "uploader": "Samuel Prince",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A2101938690"
+    }
+  ]
+}

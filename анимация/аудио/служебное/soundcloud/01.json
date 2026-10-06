@@ -1,0 +1,28 @@
+{
+  "name": "MONTAGEM COMA",
+  "artist": "ANDROMEDA & elysian.",
+  "example": "-RjfpcdUyas",
+  "entries": [
+    {
+      "id": "2101009824",
+      "title": "ANDROMEDA - MONTAGEM COMA",
+      "duration": 73.527,
+      "uploader": "elysian.",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A2101009824"
+    },
+    {
+      "id": "2101009815",
+      "title": "ANDROMEDA - MONTAGEM COMA (Slowed)",
+      "duration": 82.527,
+      "uploader": "elysian.",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A2101009815"
+    },
+    {
+      "id": "2101009818",
+      "title": "ANDROMEDA - MONTAGEM COMA  (Ultra Slowed)",
+      "duration": 99.214,
+      "uploader": "elysian.",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A2101009818"
+    }
+  ]
+}

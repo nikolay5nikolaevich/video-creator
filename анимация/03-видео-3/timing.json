@@ -1,6 +1,7 @@
 {
   "fps": 24,
   "dur": 11.5,
+  "out": "mama-proveryaet",
   "shots": [0, 2.5, 4.2, 6.2, 7.6, 9.6, 10.6],
   "ev": {
     "creak": 1.5,

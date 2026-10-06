@@ -1,0 +1,527 @@
+[
+  {
+    "source": "kxKCRaAEwAY",
+    "name": "Awkward Pause 1",
+    "start": 10,
+    "end": 12.9227085,
+    "folder": "звуковые-эффекты\\из-подборок\\Top-60\\004a-Awkward Pause 1"
+  },
+  {
+    "source": "kxKCRaAEwAY",
+    "name": "Awkward Pause 2",
+    "start": 12.9227085,
+    "end": 15,
+    "folder": "звуковые-эффекты\\из-подборок\\Top-60\\004b-Awkward Pause 2"
+  },
+  {
+    "source": "kxKCRaAEwAY",
+    "name": "Cash Register 1",
+    "start": 62,
+    "end": 65.4776355,
+    "folder": "звуковые-эффекты\\из-подборок\\Top-60\\019a-Cash Register 1"
+  },
+  {
+    "source": "kxKCRaAEwAY",
+    "name": "Cash Register 2",
+    "start": 65.4776355,
+    "end": 68.276302,
+    "folder": "звуковые-эффекты\\из-подборок\\Top-60\\019b-Cash Register 2"
+  },
+  {
+    "source": "kxKCRaAEwAY",
+    "name": "Cash Register 3",
+    "start": 68.276302,
+    "end": 70.8448645,
+    "folder": "звуковые-эффекты\\из-подборок\\Top-60\\019c-Cash Register 3"
+  },
+  {
+    "source": "kxKCRaAEwAY",
+    "name": "Cash Register 4",
+    "start": 70.8448645,
+    "end": 72.3994895,
+    "folder": "звуковые-эффекты\\из-подборок\\Top-60\\019d-Cash Register 4"
+  },
+  {
+    "source": "kxKCRaAEwAY",
+    "name": "Cash Register 5",
+    "start": 72.3994895,
+    "end": 74,
+    "folder": "звуковые-эффекты\\из-подборок\\Top-60\\019e-Cash Register 5"
+  },
+  {
+    "source": "kxKCRaAEwAY",
+    "name": "iPhone Send",
+    "start": 93,
+    "end": 93.5108645,
+    "folder": "звуковые-эффекты\\из-подборок\\Top-60\\028a-iPhone Send"
+  },
+  {
+    "source": "kxKCRaAEwAY",
+    "name": "iPhone Receive",
+    "start": 93.5108645,
+    "end": 95,
+    "folder": "звуковые-эффекты\\из-подборок\\Top-60\\028b-iPhone Receive"
+  },
+  {
+    "source": "kxKCRaAEwAY",
+    "name": "DA - Bells 1",
+    "start": 109,
+    "end": 110.594469,
+    "folder": "звуковые-эффекты\\из-подборок\\Top-60\\033a-DA - Bells 1"
+  },
+  {
+    "source": "kxKCRaAEwAY",
+    "name": "DA - Bells 2",
+    "start": 110.594469,
+    "end": 111.9667915,
+    "folder": "звуковые-эффекты\\из-подборок\\Top-60\\033b-DA - Bells 2"
+  },
+  {
+    "source": "kxKCRaAEwAY",
+    "name": "DA - Bells 3",
+    "start": 111.9667915,
+    "end": 113,
+    "folder": "звуковые-эффекты\\из-подборок\\Top-60\\033c-DA - Bells 3"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Hi",
+    "start": 0,
+    "end": 1.0828645,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\001-Hi"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Bye",
+    "start": 1.0828645,
+    "end": 2.586385,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\002-Bye"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Glee",
+    "start": 2.586385,
+    "end": 4.0109375,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\003-Glee"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sad",
+    "start": 4.0109375,
+    "end": 5.720823,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\004-Sad"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Laugh",
+    "start": 5.720823,
+    "end": 7.2284685,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\005-Laugh"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Think",
+    "start": 7.2284685,
+    "end": 8.462094,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\006-Think"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Fear",
+    "start": 8.462094,
+    "end": 9.765406500000001,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\007-Fear"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Woah",
+    "start": 9.765406500000001,
+    "end": 11.206729,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\008-Woah"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Angry",
+    "start": 11.206729,
+    "end": 13.0549585,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\009-Angry"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Huh",
+    "start": 13.0549585,
+    "end": 14.2495625,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\010-Huh"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing",
+    "start": 14.2495625,
+    "end": 23.093093500000002,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sleep",
+    "start": 23.093093500000002,
+    "end": 25.5433745,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\012-Sleep"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Clap",
+    "start": 25.5433745,
+    "end": 29.4071355,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\013-Clap"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Ew",
+    "start": 29.4071355,
+    "end": 30.590302,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\014-Ew"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Evil",
+    "start": 30.590302,
+    "end": 33.487489499999995,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\015-Evil"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Gasp",
+    "start": 33.487489499999995,
+    "end": 35.054427000000004,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\016-Gasp"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Faint",
+    "start": 35.054427000000004,
+    "end": 37.077354,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\017-Faint"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing — нота 1",
+    "start": 14.859167,
+    "end": 15.293958,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing\\ноты\\01"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing — нота 2",
+    "start": 15.477561999999999,
+    "end": 15.907479,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing\\ноты\\02"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing — нота 3",
+    "start": 16.116792,
+    "end": 16.565208,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing\\ноты\\03"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing — нота 4",
+    "start": 16.713167000000002,
+    "end": 17.141854,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing\\ноты\\04"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing — нота 5",
+    "start": 17.333375,
+    "end": 17.766707999999998,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing\\ноты\\05"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing — нота 6",
+    "start": 17.973125000000003,
+    "end": 18.394083,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing\\ноты\\06"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing — нота 7",
+    "start": 18.548604,
+    "end": 18.979291999999997,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing\\ноты\\07"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing — нота 8",
+    "start": 19.145458,
+    "end": 19.539061999999998,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing\\ноты\\08"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing — нота 9",
+    "start": 19.719833,
+    "end": 20.131292,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing\\ноты\\09"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing — нота 10",
+    "start": 20.273625000000003,
+    "end": 20.683457999999998,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing\\ноты\\10"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing — нота 11",
+    "start": 20.852271000000002,
+    "end": 21.245813,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing\\ноты\\11"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing — нота 12",
+    "start": 21.446042000000002,
+    "end": 21.826145999999998,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing\\ноты\\12"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing — нота 13",
+    "start": 22.044958,
+    "end": 22.435167,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing\\ноты\\13"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Sing — нота 14",
+    "start": 22.599292000000002,
+    "end": 22.980687,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\011-Sing\\ноты\\14"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Clap — хлопок 1",
+    "start": 25.777312000000002,
+    "end": 25.875124999999997,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\013-Clap\\хлопки\\01"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Clap — хлопок 2",
+    "start": 26.050250000000002,
+    "end": 26.197561999999998,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\013-Clap\\хлопки\\02"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Clap — хлопок 3",
+    "start": 26.324937000000002,
+    "end": 26.506292,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\013-Clap\\хлопки\\03"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Clap — хлопок 4",
+    "start": 26.609937000000002,
+    "end": 26.758062,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\013-Clap\\хлопки\\04"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Clap — хлопок 5",
+    "start": 26.887917,
+    "end": 27.034457999999997,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\013-Clap\\хлопки\\05"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Clap — хлопок 6",
+    "start": 27.172563,
+    "end": 27.321958,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\013-Clap\\хлопки\\06"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Clap — хлопок 7",
+    "start": 27.468688,
+    "end": 27.630542,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\013-Clap\\хлопки\\07"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Clap — хлопок 8",
+    "start": 27.764792,
+    "end": 27.912083,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\013-Clap\\хлопки\\08"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Clap — хлопок 9",
+    "start": 28.073187,
+    "end": 28.195145999999998,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\013-Clap\\хлопки\\09"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Clap — хлопок 10",
+    "start": 28.359750000000002,
+    "end": 28.506228999999998,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\013-Clap\\хлопки\\10"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Clap — хлопок 11",
+    "start": 28.652042,
+    "end": 28.783687999999998,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\013-Clap\\хлопки\\11"
+  },
+  {
+    "source": "hRousVIACr0",
+    "name": "Clap — хлопок 12",
+    "start": 28.943333000000003,
+    "end": 29.091728999999997,
+    "folder": "голоса-персонажей\\Pizza-Place-из-видео\\013-Clap\\хлопки\\12"
+  },
+  {
+    "source": "FEmVxT4hOpQ",
+    "name": "Roblox Oof — мемная реплика",
+    "start": 6.78,
+    "end": 7.22,
+    "folder": "звуковые-эффекты\\Roblox-Death-Comparison\\мемная-реплика"
+  },
+  {
+    "source": "FEmVxT4hOpQ",
+    "name": "Roblox Oof — оригинальная реплика",
+    "start": 11.8,
+    "end": 12.22,
+    "folder": "звуковые-эффекты\\Roblox-Death-Comparison\\оригинальная-реплика"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "Goofy Android Notification",
+    "start": 0,
+    "end": 3.4191875,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\001-Goofy Android Notification"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "AWWW MA GAWD",
+    "start": 3.4191875,
+    "end": 6.1831145,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\002-AWWW MA GAWD"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "Ohio Scream",
+    "start": 6.1831145,
+    "end": 8.3788125,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\003-Ohio Scream"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "999 Credit Score Siren — повтор 1",
+    "start": 8.3788125,
+    "end": 10.6867,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\004-999 Credit Score Siren — повтор 1"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "999 Credit Score Siren — повтор 2",
+    "start": 10.6867,
+    "end": 12.6865,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\005-999 Credit Score Siren — повтор 2"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "999 Credit Score Siren — повтор 3",
+    "start": 12.6865,
+    "end": 15.0832395,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\006-999 Credit Score Siren — повтор 3"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "Kitchen Nightmares",
+    "start": 15.0832395,
+    "end": 19.006281,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\007-Kitchen Nightmares"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "Goofy Laugh",
+    "start": 19.006281,
+    "end": 25.695073,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\008-Goofy Laugh"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "Fart",
+    "start": 25.695073,
+    "end": 27.019125,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\009-Fart"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "Vine Boom",
+    "start": 27.019125,
+    "end": 30.0100315,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\010-Vine Boom"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "Goofy Ohio Notification",
+    "start": 30.0100315,
+    "end": 32.929875,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\011-Goofy Ohio Notification"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "Ohio Horn",
+    "start": 32.929875,
+    "end": 35.68401,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\012-Ohio Horn"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "Cartoony Run (возможен кашель в конце)",
+    "start": 35.68401,
+    "end": 38.786521,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\013-Cartoony Run (возможен кашель в конце)"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "Короткий эффект около 39 с (не опознан)",
+    "start": 38.786521,
+    "end": 39.3643955,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\014-Короткий эффект около 39 с (не опознан)"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "Goofy Cough",
+    "start": 39.3643955,
+    "end": 41.8165,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\015-Goofy Cough"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "Diarrhea",
+    "start": 41.8165,
+    "end": 46.721,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\016-Diarrhea"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "What Da Hell",
+    "start": 46.721,
+    "end": 54.6376665,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\017-What Da Hell"
+  },
+  {
+    "source": "NPbWhDaESds",
+    "name": "Cartoony Hit",
+    "start": 54.6376665,
+    "end": 56.482542,
+    "folder": "звуковые-эффекты\\из-подборок\\Goofy-Ahh\\018-Cartoony Hit"
+  }
+]

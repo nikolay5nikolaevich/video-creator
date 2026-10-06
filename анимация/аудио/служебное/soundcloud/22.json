@@ -1,0 +1,28 @@
+{
+  "name": "Jalebi Baby",
+  "artist": "Tesher",
+  "example": "VfKIAApBoX0",
+  "entries": [
+    {
+      "id": "928652437",
+      "title": "Jalebi Baby",
+      "duration": 189.421,
+      "uploader": "Tesher",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A928652437"
+    },
+    {
+      "id": "1045576327",
+      "title": "tesher, jalebi baby (slowed)",
+      "duration": 233.868,
+      "uploader": "Slowedistic",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1045576327"
+    },
+    {
+      "id": "997004014",
+      "title": "Jalebi Baby ~ Tesher |slowed + reverb|",
+      "duration": 211.35,
+      "uploader": "수연",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A997004014"
+    }
+  ]
+}

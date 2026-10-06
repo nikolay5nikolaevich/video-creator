@@ -1,0 +1,28 @@
+{
+  "name": "PASSO BEM SOLTO (Slowed)",
+  "artist": "ATLXS",
+  "example": "cfQi62_4_w0",
+  "entries": [
+    {
+      "id": "1923952379",
+      "title": "PASSO BEM SOLTO (Slowed)",
+      "duration": 116.095,
+      "uploader": "ATLXS",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1923952379"
+    },
+    {
+      "id": "1923953063",
+      "title": "PASSO BEM SOLTO (Super Slowed)",
+      "duration": 122.994,
+      "uploader": "ATLXS",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1923953063"
+    },
+    {
+      "id": "2044479960",
+      "title": "PASSO BEM SOLTO (Ultra Slowed)",
+      "duration": 137.853,
+      "uploader": "ATLXS",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A2044479960"
+    }
+  ]
+}

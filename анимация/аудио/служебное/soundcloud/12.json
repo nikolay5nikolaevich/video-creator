@@ -1,0 +1,28 @@
+{
+  "name": "AVOID ME",
+  "artist": "KUTE",
+  "example": "q7WRnJebh7w",
+  "entries": [
+    {
+      "id": "1201283470",
+      "title": "AVOID ME",
+      "duration": 105.835,
+      "uploader": "KUTE",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1201283470"
+    },
+    {
+      "id": "1243298989",
+      "title": "AVOID ME 2",
+      "duration": 105.835,
+      "uploader": "KUTE",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1243298989"
+    },
+    {
+      "id": "1298733343",
+      "title": "AVOID ME 3",
+      "duration": 120.046,
+      "uploader": "KUTE",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1298733343"
+    }
+  ]
+}

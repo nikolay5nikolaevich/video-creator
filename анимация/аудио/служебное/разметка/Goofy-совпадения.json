@@ -1,0 +1,37 @@
+[
+  {
+    "reference": "звуковые-эффекты\\из-подборок\\500-Meme\\003-Oi (shocked)\\звук.mp3",
+    "score": 0.9349249959778959,
+    "anchor": 26.96225,
+    "reference_offset": 0.25,
+    "window": 0.75
+  },
+  {
+    "reference": "звуковые-эффекты\\из-подборок\\500-Meme\\004-Vine boom\\звук.mp3",
+    "score": 0.9245687180680978,
+    "anchor": 27.712375,
+    "reference_offset": 0.00025,
+    "window": 0.75
+  },
+  {
+    "reference": "звуковые-эффекты\\из-подборок\\500-Meme\\052-headshot csgo\\звук.mp3",
+    "score": 0.8135570853004968,
+    "anchor": 35.993375,
+    "reference_offset": 0.25,
+    "window": 0.75
+  },
+  {
+    "reference": "звуковые-эффекты\\из-подборок\\500-Meme\\144-bonk\\звук.mp3",
+    "score": 0.6658592022713763,
+    "anchor": 18.606625,
+    "reference_offset": 0.25,
+    "window": 0.75
+  },
+  {
+    "reference": "звуковые-эффекты\\из-подборок\\Top-60\\030-999 Credit Score Siren\\звук.mp3",
+    "score": 0.9822782943831639,
+    "anchor": 13.124875,
+    "reference_offset": 2.3415,
+    "window": 0.75
+  }
+]

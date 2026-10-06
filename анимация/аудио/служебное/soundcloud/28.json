@@ -1,0 +1,28 @@
+{
+  "name": "all I want is you",
+  "artist": "Rebzyyx",
+  "example": "duIZ7UFoCkk",
+  "entries": [
+    {
+      "id": "1162895380",
+      "title": "All I want is you ||Rebzyyx",
+      "duration": 191.982,
+      "uploader": "axqa",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1162895380"
+    },
+    {
+      "id": "1146759742",
+      "title": "Rebzyyx - all i want is you",
+      "duration": 163.397,
+      "uploader": "liiza.n",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1146759742"
+    },
+    {
+      "id": "1050113605",
+      "title": "all i want is you - rebzyyx (slowed)",
+      "duration": 197.506,
+      "uploader": "nztarin",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A1050113605"
+    }
+  ]
+}

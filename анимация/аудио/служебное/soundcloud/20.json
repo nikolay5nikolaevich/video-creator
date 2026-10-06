@@ -1,0 +1,28 @@
+{
+  "name": "Pitbull Terrier",
+  "artist": "Die Antwoord",
+  "example": "dn0o4Yjj-Jc",
+  "entries": [
+    {
+      "id": "292994042",
+      "title": "Pitbull Terrier",
+      "duration": 30.0,
+      "uploader": "Die Antwoord",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A292994042"
+    },
+    {
+      "id": "153484949",
+      "title": "Die Antwoord - Pitbull Terrier (Xian Vox Remix)",
+      "duration": 220.232,
+      "uploader": "Xian Vox",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A153484949"
+    },
+    {
+      "id": "892528090",
+      "title": "𝔇𝔦𝔢 𝔄𝔫𝔱𝔴𝔬𝔬𝔯𝔡 | 𝔓𝔦𝔱𝔟𝔲𝔩𝔩 𝔗𝔢𝔯𝔯𝔦𝔢𝔯 | 𝔰𝔩𝔬𝔴𝔢𝔡 + ℜ𝔢𝔳𝔢𝔯𝔟",
+      "duration": 298.626,
+      "uploader": "maaargo",
+      "url": "https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A892528090"
+    }
+  ]
+}
